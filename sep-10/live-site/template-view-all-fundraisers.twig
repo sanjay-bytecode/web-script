@@ -1,0 +1,132 @@
+{# % extends "base.twig" % #}
+
+{% block content %}
+
+{# Banner Start Here #}
+<section class="busines-banner fundraiser-banner">
+<div class="container">
+<div class="banner-content"><h2>Fundraising Campaigns</h2>
+</div>
+</div>
+</section>
+{# Banner End Here #}
+
+{# Mid Counter Start Here #}
+
+<div class="campaigns-overley">
+<img class="campaign-spin" src="{{fn('bloginfo','template_directory')}}/images/spinner-of-dots-white.gif">
+{# <i class="fas fa-spinner fa-spin campaign-spin"></i> #}
+</div>
+
+<section class="mid-counter">
+<section class="fitter-drop">
+
+<span>Click on the right filter for more search </span> <i class="fas fa-filter hide-show-bar-search"></i>
+
+
+	<div class="show-search-mobile" style="display:none;">
+<div class="d-search">
+<input type="text" id="mob_fund_serach_by_name" name="fund_serach_by_name" 
+placeholder="Search campaigns by name" class="form-control d-search-input fund_serach_by_name">
+<button class="d-search-btn"><i class="fas fa-search before-spin"></i>
+<i class="fas fa-spinner fa-spin after-spin"></i>
+</button>
+</div>
+<div class="d-search">
+<label> Categories</label>
+<select id="mob_new_select_category" name="new_select_category" class="list-menu new_select_category">
+<option value="">Select Category</option>
+{% for cat in categories %}
+<option value="{{cat.id}}">{{cat.name}}</option>
+{% endfor %}
+</select>
+</div>
+<div class="d-search">
+<input type="text" id="mob_select_loction" class="form-control select_loction" name="select_location" placeholder="Search by city or zipcode">
+<button class="d-search-btn"><i class="fas fa-search before-srch"></i>
+<i class="fas fa-spinner fa-spin after-srch" style="display: none"></i>
+</button>
+</div>
+<div class="d-search">
+<label> Sort by</label>
+<select id="mob_most_funded" class="list-menu most_funded" name="">
+<option value="">Select- </option>
+<option value="most_fund">Most Funded</option>
+</select>
+</div>
+</div>
+
+</section>
+<section class="fundraiser-sec">
+<div class="container">
+<section class="dicover-form">
+<div class="d-search">
+<input type="text" id="fund_serach_by_name" name="fund_serach_by_name" 
+placeholder="Search campaigns by name" class="form-control d-search-input fund_serach_by_name">
+<button class="d-search-btn"><i class="fas fa-search before-spin"></i>
+<i class="fas fa-spinner fa-spin after-spin"></i>
+</button>
+</div>
+<div class="d-search">
+<label> Categories</label>
+<select id="new_select_category" name="new_select_category" class="list-menu fund_serach_by_name">
+<option value="">Select Category</option>
+{% for cat in categories %}
+<option value="{{cat.id}}">{{cat.name}}</option>
+{% endfor %}
+</select>
+</div>
+<div class="d-search">
+<input type="text" id="select_loction" class="form-group select_loction" name="select_location" placeholder="Search by city or zipcode">
+<button class="d-search-btn"><i class="fas fa-search before-srch"></i>
+<i class="fas fa-spinner fa-spin after-srch" style="display: none"></i>
+</button>
+</div>
+<div class="d-search">
+<label> Sort by</label>
+<select id="most_funded" class="list-menu most_funded" name="">
+<option value="">Select- </option>
+<option value="most_fund">Most Funded</option>
+</select>
+</div>
+</section>
+
+<section class="campaign-sec">
+<div class="clear-search">
+<a class="btn btn-success clear_all_search">Clear Search</a>
+</div>
+<div class="ballon"><img src="{{fn('bloginfo','template_directory')}}/images/ballon.png"></div>
+<div class='alert alert-danger fs-error-fund fs-error-fund-cat' style='display:none;'>
+<div class="row campaign-list">
+<span style='color:red;'>There are no campaigns available in this category.</span>
+</div>
+</div>
+
+<div class='alert alert-danger fs-error-fund fs-error-fund-part' style='display:none;'>
+<div class="row campaign-list">
+<span style='color:red;'>There are no campaigns available.</span>
+</div>
+</div>
+
+<div class="all-campaign-list">
+<div class="current_active_campaigns">
+{{fn('current_fundraiser')}}
+</div>
+<div class="current_past_campaigns">
+{{fn('past_fundraiser')}}
+</div>
+</div>
+
+<div class="fundname-filter-fund-post" style="display:none;"></div>
+<div class="category-filter-fund-post" style="display:none;"></div>
+<div class="location-filter-fund-post" style="display:none;"></div>
+<div class="location-most-fund-post" style="display:none;"></div>
+</section>
+
+
+</div>
+</section>
+</section>
+{# Mid Counter End Here #}
+
+{% endblock %}
